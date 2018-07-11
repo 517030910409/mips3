@@ -156,10 +156,11 @@ void dealText(const std::string& fileName, char* const&text, const labelMap& lab
     }
 }
 
-char* load(const std::string& fileName, const registerSet& rst, size_t& data) {
+char* load(const std::string& fileName, const registerSet& rst, size_t& data, size_t& _text) {
     char* text = new char[FOUR_M]; 
     labelMap label; 
     data = loadText(fileName, text, label, rst); 
+    _text = data; 
     loadData(fileName, text, data, label); 
     dealText(fileName, text, label, rst); 
     return text; 
